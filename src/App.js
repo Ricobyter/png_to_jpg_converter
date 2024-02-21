@@ -43,7 +43,7 @@ export default function App()  {
     };
 
     return (
-        <div className="container h-full flex items-center w-[100vw] justify-center flex-col bg-[#030637]">
+        <div className="container h-[100vh] flex items-center w-[100vw] justify-center flex-col bg-[#030637]">
             <nav className="bg-crimson mt-4 text-red-600 font-bold text-center text-xl md:text-2xl uppercase rounded">
                 <h1>PNG to JPG Converter</h1>
             </nav>
