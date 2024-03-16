@@ -24,7 +24,7 @@ export default function App() {
             });
             return;
         }
-        
+
         const reader = new FileReader();
         reader.onload = function (event) {
             const image = new Image();
@@ -58,6 +58,12 @@ export default function App() {
                     pdf.addImage(canvas.toDataURL('image/png'), 'PNG', x, y, imgWidth, imgHeight);
                     pdf.save('image.pdf');
                 }
+                else if (convertTo === 'png') {
+                    const link = document.createElement('a');
+                    link.download = 'image.png';
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+                }
             };
             image.src = event.target.result;
         };
@@ -82,13 +88,14 @@ export default function App() {
 
                         {fileName && (<span className="text-pink-500 flex gap-2 items-center justify-center"><FaImage />{fileName}</span>)}
                     </div>
-                    <input type="file" id="input" accept="image/png" onChange={handleFileChange} className="hidden" />
+                    <input type="file" id="input" accept="image/*" onChange={handleFileChange} className="hidden" />
                 </label>
             </div>
 
             <select onChange={handleConvertToChange}>
                 <option value="jpg">JPG</option>
                 <option value="pdf">PDF</option>
+                <option value="png">PNG</option>
             </select>
 
             <button className="mt-10 bg-crimson text-xl text-white  w-[80vw] md:w-[60vw] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  rounded-xl py-2 px-4 font-semibold" onClick={convertImage}>
@@ -103,7 +110,7 @@ export default function App() {
                 </div>
             </div>
 
-            <footer className="text-center bottom-2 mt-6 text-gray-300 text-xs">Copyright &copy; <a href="#">Rico</a> | Developed With you ❤️ By <a href="#" className='text-pink-500'>Rico</a></footer>
+            <footer className="text-center bottom-2 mt-6 text-gray-300 text-xs">Copyright &copy; <a href="#/">Rico</a> | Developed With you ❤️ By <a href="#/" className='text-pink-500'>Rico</a></footer>
         </div>
     );
 };
