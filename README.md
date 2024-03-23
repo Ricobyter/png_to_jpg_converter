@@ -1,7 +1,7 @@
 # Project Name
 
 ## Description
-This project is a fun smalll project in whch you can convert your PNG image to JPG format. It was built using React framework and styled with Tailwind CSS.
+This project is a fun smalll project in whch you can convert your PNG image to JPG or PDF format. It was built using React framework and styled with Tailwind CSS.
 
 ## Installation
 1. Clone the repository.
